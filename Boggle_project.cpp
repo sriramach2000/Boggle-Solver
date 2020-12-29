@@ -28,7 +28,7 @@ int main()
 	cout << dict.wordCount() << " words loaded." << endl << endl;
 
 	
-string wordSoFar;
+	string wordSoFar;
 
 
 	cout << "Enter Board" << endl;
@@ -48,11 +48,6 @@ string wordSoFar;
 		printBoard = false;
 	}
 	
-	
-
-
-
-// Part B code
 	Dictionary wordsFound;
 	SolveBoard(board, previous,dict ,wordsFound, printBoard,wordSoFar,out_file);
 	out_file.close();
@@ -75,9 +70,7 @@ void SolveBoard(string board[BOARD_SIZE][BOARD_SIZE], int previous[BOARD_SIZE][B
 			
 			//Initial calls to SolveBoardHelper
 			
-			
-			SearchForWord(r, c, step_count, board, previous, wordsFound, stringSoFar, dict,printBoard,out_file);
-			
+			SearchForWord(r, c, step_count, board, previous, wordsFound, stringSoFar, dict,printBoard,out_file);	
 		}
 		
 	}
@@ -85,15 +78,13 @@ void SolveBoard(string board[BOARD_SIZE][BOARD_SIZE], int previous[BOARD_SIZE][B
 }
 
 void SearchForWord(int row, int col, int step_count, string board[BOARD_SIZE][BOARD_SIZE],int previous[BOARD_SIZE][BOARD_SIZE], Dictionary& wordsFound, string stringSoFar, Dictionary& dict, bool printBoard,ofstream& out_file) {
-	//attempt to intialize the previous board with all 0's
+	//intialize the previous board with all 0's
 	
 	
 	if (row < 0 || row >= BOARD_SIZE || col < 0 || col >= BOARD_SIZE) {
 		
 		return;
 	}
-	
-	// cout << stringSoFar << " "<< row << "," << col << endl;
 
 	//cannot revisit places youve already been to
 	if (previous[row][col] > 0) {
@@ -105,7 +96,7 @@ void SearchForWord(int row, int col, int step_count, string board[BOARD_SIZE][BO
 		return;
 	}
 
-	
+	// updating string so far with the letter on the board
 	stringSoFar += board[row][col];
 	step_count++;
 	previous[row][col] = step_count;
@@ -158,7 +149,7 @@ void SearchForWord(int row, int col, int step_count, string board[BOARD_SIZE][BO
 	previous[row][col] = 0;
 	
 }
-
+// this is simply a format function
 void insert_char(int row,int col,int previous[BOARD_SIZE][BOARD_SIZE],string board[BOARD_SIZE][BOARD_SIZE],ofstream& out_file) {
 	for (row = 0; row < BOARD_SIZE; row++) {
 		
