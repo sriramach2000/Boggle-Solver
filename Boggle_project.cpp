@@ -1,3 +1,8 @@
+/*
+Author: Sriram Acharya
+Class: CS 301
+*/
+
 #include "Dictionary.h"
 #include <iomanip>
 #include <fstream>
